@@ -6,257 +6,170 @@
 <title>Sachin Iyer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Suisse+Intl:wght@300;400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --black: #060606;
-    --white: #f0ede8;
-    --dim: rgba(240,237,232,0.45);
-    --dimmer: rgba(240,237,232,0.18);
-    --accent: rgba(240,237,232,0.08);
-  }
-
   html, body {
     width: 100%; height: 100%;
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Mono', monospace;
+    background: #ffffff;
+    color: #0a0a0a;
+    font-family: 'Inter', sans-serif;
     overflow: hidden;
+  }
+
+  /* SPLAT FULLSCREEN BACKGROUND */
+  .splat-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .splat-bg iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
   }
 
   /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    padding: 28px 48px;
-    mix-blend-mode: normal;
-  }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 15px;
-    letter-spacing: 0.12em;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
+    padding: 24px 48px;
   }
 
   .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 32px;
     list-style: none;
   }
 
   .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--dim);
+    color: #0a0a0a;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover,
+  .nav-links a.active { color: #555; }
 
-  /* MAIN LAYOUT */
-  .hero {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-  }
-
-  /* LEFT PANEL */
-  .left-panel {
+  /* TEXT LAYER */
+  .text-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 48px 0 48px;
-    position: relative;
-    z-index: 10;
+    padding: 0 64px;
+    pointer-events: none;
   }
 
-  .name-block {
-    margin-bottom: 40px;
-  }
-
-  .name-label {
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--dimmer);
-    margin-bottom: 12px;
-    display: block;
-  }
+  /* pointer-events back on for links */
+  .text-layer a,
+  .text-layer .contact-line { pointer-events: auto; }
 
   h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 92px);
     line-height: 1.0;
-    letter-spacing: -0.01em;
-    color: var(--white);
-  }
-
-  h1 span {
-    display: block;
-  }
-
-  .divider {
-    width: 32px;
-    height: 1px;
-    background: var(--dimmer);
-    margin: 36px 0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    margin-bottom: 36px;
   }
 
   .bio {
-    font-family: 'DM Mono', monospace;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 1.9;
-    color: var(--dim);
-    max-width: 340px;
-    letter-spacing: 0.02em;
+    font-size: clamp(14px, 1.1vw, 16px);
+    font-weight: 400;
+    line-height: 1.75;
+    color: #0a0a0a;
+    max-width: 520px;
   }
 
-  .bio p + p {
-    margin-top: 16px;
-  }
+  .bio p + p { margin-top: 20px; }
 
   .contact-line {
     margin-top: 48px;
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
   }
 
   .contact-link {
-    font-size: 9px;
-    letter-spacing: 0.25em;
+    font-size: 11px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--dimmer);
+    color: #555;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s;
   }
 
-  .contact-link:hover { color: var(--white); }
+  .contact-link:hover { color: #0a0a0a; }
 
   .contact-dot {
-    width: 2px; height: 2px;
+    width: 3px; height: 3px;
     border-radius: 50%;
-    background: var(--dimmer);
+    background: #aaa;
   }
 
-  /* RIGHT PANEL — SPLAT VIEWER */
-  .right-panel {
-    position: relative;
-    overflow: hidden;
-  }
-
-  #splat-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .loading-screen {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-    background: var(--black);
-    transition: opacity 0.8s ease;
-  }
-
-  .loading-screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .loading-label {
-    font-size: 9px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--dimmer);
-    margin-bottom: 20px;
-  }
-
-  .loading-bar-track {
-    width: 120px;
-    height: 1px;
-    background: var(--accent);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .loading-bar-fill {
-    height: 100%;
-    background: var(--dim);
-    width: 0%;
-    transition: width 0.3s ease;
-  }
-
-  /* vertical rule between panels */
-  .panel-rule {
-    position: fixed;
-    left: 50%;
-    top: 80px;
-    bottom: 80px;
-    width: 1px;
-    background: var(--dimmer);
-    z-index: 5;
-    transform: translateX(-50%);
-  }
-
-  /* drag hint */
   .drag-hint {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 9px;
-    letter-spacing: 0.25em;
+    position: fixed;
+    bottom: 24px;
+    right: 48px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--dimmer);
+    color: #888;
     z-index: 10;
     white-space: nowrap;
-    opacity: 1;
-    transition: opacity 1s ease;
+    transition: opacity 0.6s;
+    pointer-events: none;
   }
 
   .drag-hint.hidden { opacity: 0; }
 
-  /* entrance animation */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 10px; }
+
+    .text-layer { padding: 0 24px; }
+
+    h1 { font-size: clamp(38px, 11vw, 64px); margin-bottom: 24px; }
+    .bio { font-size: 14px; max-width: 100%; }
+    .contact-line { margin-top: 32px; }
+
+    .drag-hint { right: 24px; bottom: 16px; }
   }
 
-  .name-label  { animation: fadeUp 0.9s ease both; animation-delay: 0.2s; opacity: 0; }
-  h1           { animation: fadeUp 0.9s ease both; animation-delay: 0.4s; opacity: 0; }
-  .divider     { animation: fadeUp 0.9s ease both; animation-delay: 0.6s; opacity: 0; }
-  .bio         { animation: fadeUp 0.9s ease both; animation-delay: 0.8s; opacity: 0; }
-  .contact-line{ animation: fadeUp 0.9s ease both; animation-delay: 1.0s; opacity: 0; }
-
+  @media (max-width: 480px) {
+    .text-layer { padding: 0 20px; }
+    h1 { font-size: clamp(34px, 12vw, 52px); }
+    .nav-links { gap: 14px; }
+  }
 </style>
 </head>
 <body>
 
+<!-- LAYER 0: splat background -->
+<div class="splat-bg">
+  <iframe src="https://www.useblurry.com/shared/ZzMmhaEElE3j?embed=true" title="Yellow Jeep" allow="fullscreen"></iframe>
+</div>
+
+<!-- LAYER 1: nav -->
 <nav>
-  <a href="index.html" class="nav-logo">Sachin Iyer</a>
   <ul class="nav-links">
     <li><a href="cgi.html">CGI</a></li>
     <li><a href="vj.html">VJ</a></li>
@@ -265,107 +178,30 @@
   </ul>
 </nav>
 
-<div class="panel-rule"></div>
+<!-- LAYER 2: text -->
+<div class="text-layer">
+  <h1>Sachin Iyer</h1>
 
-<section class="hero">
-  <div class="left-panel">
-    <div class="name-block">
-      <span class="name-label">Visual Artist — Mumbai</span>
-      <h1>
-        <span>Sachin</span>
-        <span>Iyer</span>
-      </h1>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="bio">
-      <p>I am a CG generalist who works with consumer brands to create elegant, campaign-ready 3D visuals to help their products stand out.</p>
-      <p>I also work as a VJ, with artists both indie and mainstream to build real-time visual content.</p>
-    </div>
-
-    <div class="contact-line">
-      <a href="mailto:hello@sachiniyer.com" class="contact-link">hello@sachiniyer.com</a>
-      <div class="contact-dot"></div>
-      <a href="https://instagram.com" target="_blank" class="contact-link">Instagram</a>
-      <div class="contact-dot"></div>
-      <a href="https://vimeo.com" target="_blank" class="contact-link">Vimeo</a>
-    </div>
+  <div class="bio">
+    <p>I am a CG generalist who works with consumer brands to create elegant, campaign ready 3D visuals to help their products stand out.</p>
+    <p>My other passion in life is working as a VJ, with artists both indie and mainstream to build real time visual content to elevate their live performances.</p>
   </div>
 
-  <div class="right-panel">
-    <div class="loading-screen" id="loading">
-      <span class="loading-label">Loading</span>
-      <div class="loading-bar-track">
-        <div class="loading-bar-fill" id="loading-bar"></div>
-      </div>
-    </div>
-    <canvas id="splat-canvas"></canvas>
-    <div class="drag-hint" id="drag-hint">drag to rotate</div>
+  <div class="contact-line">
+    <a href="mailto:hello@sachiniyer.com" class="contact-link">hello@sachiniyer.com</a>
+    <div class="contact-dot"></div>
+    <a href="https://instagram.com" target="_blank" class="contact-link">Instagram</a>
+    <div class="contact-dot"></div>
+    <a href="https://vimeo.com" target="_blank" class="contact-link">Vimeo</a>
   </div>
-</section>
+</div>
 
-<script type="module">
-import * as SPLAT from 'https://cdn.jsdelivr.net/npm/@sparkjoy/splat@latest/dist/splat.module.js';
+<div class="drag-hint" id="drag-hint">drag to rotate</div>
 
-(async () => {
-  const canvas = document.getElementById('splat-canvas');
-  const loading = document.getElementById('loading');
-  const bar = document.getElementById('loading-bar');
-  const hint = document.getElementById('drag-hint');
-
-  const renderer = new SPLAT.Renderer(canvas);
-  const scene = new SPLAT.Scene();
-  const camera = new SPLAT.Camera();
-  const controls = new SPLAT.OrbitControls(camera, canvas);
-
-  // Rotation limits: ~90deg each side of front-three-quarter default
-  controls.minAzimuthAngle = -Math.PI * 0.55;
-  controls.maxAzimuthAngle =  Math.PI * 0.55;
-  // Lock vertical tilt
-  controls.minPolarAngle = Math.PI * 0.38;
-  controls.maxPolarAngle = Math.PI * 0.52;
-  // Zoom limits
-  controls.minDistance = 2.5;
-  controls.maxDistance = 6.0;
-  // Damping for smooth feel
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.08;
-
-  // Set initial camera to front-three-quarter
-  camera.position.set(2.2, 1.2, 3.0);
-  camera.lookAt(0, 0, 0);
-
-  try {
-    await SPLAT.Loader.LoadAsync(
-      'Yellow_Jeep.splat',
-      scene,
-      (progress) => {
-        bar.style.width = (progress * 100).toFixed(0) + '%';
-      }
-    );
-  } catch(e) {
-    console.error('Splat load error:', e);
-  }
-
-  loading.classList.add('hidden');
-
-  // Hide drag hint after first interaction
-  let interacted = false;
-  canvas.addEventListener('pointerdown', () => {
-    if (!interacted) {
-      interacted = true;
-      hint.classList.add('hidden');
-    }
+<script>
+  document.querySelector('.splat-bg').addEventListener('pointerdown', () => {
+    document.getElementById('drag-hint').classList.add('hidden');
   }, { once: true });
-
-  const frameLoop = () => {
-    requestAnimationFrame(frameLoop);
-    controls.update();
-    renderer.render(scene, camera);
-  };
-  frameLoop();
-})();
 </script>
 
 </body>
