@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGI — Sachin Iyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #060606; --white: #f0ede8; --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
+  html, body { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; min-height: 100vh; }
+
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 28px 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+  .page-content { padding: 140px 48px 80px; max-width: 1200px; margin: 0 auto; }
+
+  .page-header { margin-bottom: 80px; }
+  .page-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dimmer); display: block; margin-bottom: 16px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 4vw, 56px); }
+
+  .rule { width: 100%; height: 1px; background: var(--dimmer); margin: 48px 0; }
+
+  /* Vimeo embeds */
+  .works-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 80px; }
+  .work-item { position: relative; background: #0d0d0d; }
+  .work-item .embed-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+  .work-item .embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .work-label { padding: 16px 0 8px; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dimmer); }
+
+  /* Clients */
+  .clients-section { margin-top: 80px; }
+  .clients-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dimmer); margin-bottom: 32px; display: block; }
+  .clients-list { display: flex; gap: 48px; flex-wrap: wrap; align-items: center; }
+  .client-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 22px; color: var(--dim); transition: color 0.3s; letter-spacing: 0.05em; }
+  .client-name:hover { color: var(--white); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .page-header { animation: fadeUp 0.8s ease both 0.2s; opacity: 0; }
+  .works-grid  { animation: fadeUp 0.8s ease both 0.4s; opacity: 0; }
+  .clients-section { animation: fadeUp 0.8s ease both 0.6s; opacity: 0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sachin Iyer</a>
+  <ul class="nav-links">
+    <li><a href="cgi.html" class="active">CGI</a></li>
+    <li><a href="vj.html">VJ</a></li>
+    <li><a href="casestudy.html">Case Study</a></li>
+    <li><a href="selected.html">Selected</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <div class="page-header">
+    <span class="page-label">Work — CGI &amp; 3D</span>
+    <h1 class="page-title">Product Visualisation</h1>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="works-grid">
+    <!-- Replace the src URLs below with your actual Vimeo embed URLs -->
+    <div class="work-item">
+      <div class="embed-wrap">
+        <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID_1?badge=0&autopause=0&player_id=0&app_id=58479&background=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="work-label">Project title</p>
+    </div>
+    <div class="work-item">
+      <div class="embed-wrap">
+        <iframe src="https://player.vimeo.com/video/YOUR_VIDEO_ID_2?badge=0&autopause=0&player_id=0&app_id=58479&background=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <p class="work-label">Project title</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="clients-section">
+    <span class="clients-label">Selected clients</span>
+    <div class="clients-list">
+      <span class="client-name">Tommy Hilfiger</span>
+      <span class="client-name">Lovetc</span>
+      <span class="client-name">Blueheaven</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

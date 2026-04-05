@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected — Sachin Iyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --black: #060606; --white: #f0ede8; --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
+  html, body { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; min-height: 100vh; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.3s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+  .page-content { padding: 140px 48px 80px; max-width: 1200px; margin: 0 auto; }
+  .page-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dimmer); display: block; margin-bottom: 16px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(36px, 4vw, 56px); margin-bottom: 60px; }
+  .rule { width: 100%; height: 1px; background: var(--dimmer); margin: 48px 0; }
+
+  .instagram-note { font-size: 10px; color: var(--dimmer); letter-spacing: 0.15em; line-height: 1.9; max-width: 480px; }
+  .instagram-link { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--dimmer); padding-bottom: 1px; transition: color 0.3s, border-color 0.3s; }
+  .instagram-link:hover { color: var(--white); border-color: var(--dim); }
+
+  /* Grid for static images — add your own screenshots here */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
+  .grid-item { aspect-ratio: 1; background: #0d0d0d; overflow: hidden; }
+  .grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0); transition: transform 0.5s ease; }
+  .grid-item:hover img { transform: scale(1.04); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .page-content { animation: fadeUp 0.8s ease both 0.2s; opacity: 0; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sachin Iyer</a>
+  <ul class="nav-links">
+    <li><a href="cgi.html">CGI</a></li>
+    <li><a href="vj.html">VJ</a></li>
+    <li><a href="casestudy.html">Case Study</a></li>
+    <li><a href="selected.html" class="active">Selected</a></li>
+  </ul>
+</nav>
+
+<div class="page-content">
+  <span class="page-label">Selected Posts</span>
+  <h1 class="page-title">Instagram</h1>
+  <div class="rule"></div>
+  <p class="instagram-note">
+    Selected work from Instagram.<br>
+    Follow for ongoing projects and process.<br><br>
+    <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="instagram-link">@your_handle</a>
+  </p>
+
+  <!-- Replace these with your own screenshot images -->
+  <!-- Add images to the same folder and reference them here -->
+  <div class="grid">
+    <!-- <div class="grid-item"><img src="img/post1.jpg" alt=""></div> -->
+    <!-- <div class="grid-item"><img src="img/post2.jpg" alt=""></div> -->
+    <!-- Add more as needed -->
+  </div>
+</div>
+</body>
+</html>
