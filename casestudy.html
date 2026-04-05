@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --black: #060606; --white: #f0ede8; --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
-  html, body { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; min-height: 100vh; }
+  :root {   --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
+  html, body { background: #ffffff; color: #0a0a0a; font-family: 'DM Mono', monospace; min-height: 100vh; }
   nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: #0a0a0a; text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+  .nav-links a:hover, .nav-links a.active { color: #0a0a0a; }
 
   .page-content { padding: 140px 48px 80px; max-width: 720px; margin: 0 auto; }
   .page-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dimmer); display: block; margin-bottom: 16px; }
@@ -23,7 +23,7 @@
 
   .case-body { font-size: 11px; line-height: 2.0; color: var(--dim); letter-spacing: 0.02em; }
   .case-body p + p { margin-top: 24px; }
-  .case-body h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 24px; color: var(--white); margin: 48px 0 16px; }
+  .case-body h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 24px; color: #0a0a0a; margin: 48px 0 16px; }
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   .page-content { animation: fadeUp 0.8s ease both 0.2s; opacity: 0; }

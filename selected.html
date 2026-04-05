@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --black: #060606; --white: #f0ede8; --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
-  html, body { background: var(--black); color: var(--white); font-family: 'DM Mono', monospace; min-height: 100vh; }
+  :root {   --dim: rgba(240,237,232,0.45); --dimmer: rgba(240,237,232,0.18); }
+  html, body { background: #ffffff; color: #0a0a0a; font-family: 'DM Mono', monospace; min-height: 100vh; }
   nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; color: #0a0a0a; text-decoration: none; }
   .nav-links { display: flex; gap: 40px; list-style: none; }
   .nav-links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.3s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--white); }
+  .nav-links a:hover, .nav-links a.active { color: #0a0a0a; }
 
   .page-content { padding: 140px 48px 80px; max-width: 1200px; margin: 0 auto; }
   .page-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dimmer); display: block; margin-bottom: 16px; }
@@ -23,7 +23,7 @@
 
   .instagram-note { font-size: 10px; color: var(--dimmer); letter-spacing: 0.15em; line-height: 1.9; max-width: 480px; }
   .instagram-link { color: var(--dim); text-decoration: none; border-bottom: 1px solid var(--dimmer); padding-bottom: 1px; transition: color 0.3s, border-color 0.3s; }
-  .instagram-link:hover { color: var(--white); border-color: var(--dim); }
+  .instagram-link:hover { color: #0a0a0a; border-color: var(--dim); }
 
   /* Grid for static images — add your own screenshots here */
   .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 48px; }
